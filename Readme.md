@@ -13,29 +13,27 @@ Let's say you want to open `that_thing.txt` so you happily type ...
 
 ```bash
 
-> nvim somedir/that
+> nvim somedir/th<TAB><CR>
 
 ```
 
-.. and swiftly (and deftly) hit `<TAB><CR>`
-
-But! You forgot about the existence of `that_other_thing.md` and so
+But! You forgot about the existence of `the_other_thing.md` so
 after the `<TAB>` the shell prompted you to disambiguate ... but you
 already swiftly hit `<CR>` so you've just opened a new file
-called `somedir/that` ... womp womp
+called `somedir/th` ... womp womp
 
 But wait! With this plugin you'll get a prompt asking you if you
-actually want to choose `that_thing` or `that_other_thing`.
+actually want to choose `that_thing` or `the_other_thing`.
 
-But don't worry, if you really intended to make a file called `that`,
-you can cancel.
+But don't worry, if you really intended to make a file called `th`,
+you can cancel, because you actually knew all along.
 
 ## How I install?
 
 The regular way.
 
 ```lua
-packer use "mong8se/actually"
+packer use "mong8se/actually.nvim"
 ```
 
 ## How I configure
