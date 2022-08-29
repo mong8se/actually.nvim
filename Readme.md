@@ -1,7 +1,7 @@
 # Actually.nvim
 
 ![A cat saying "umm... actually" and pushing up its nerd
-glasses](https://giphy.com/embed/RMwZypp489fuGBI0Ti.gif)
+glasses](https://giphy.com/embed/RMwZypp489fuGBI0Ti/giphy.gif)
 
 ## What is it?
 
