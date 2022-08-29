@@ -1,6 +1,7 @@
 # Actually.nvim
 
-<iframe src="https://giphy.com/embed/RMwZypp489fuGBI0Ti" width="480" height="267" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/leroypatterson-right-wrong-actually-RMwZypp489fuGBI0Ti">via GIPHY</a></p>
+![A cat saying "umm... actually" and pushing up its nerd
+glasses](https://giphy.com/embed/RMwZypp489fuGBI0Ti.gif)
 
 ## What is it?
 
