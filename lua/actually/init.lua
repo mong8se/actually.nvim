@@ -6,7 +6,7 @@ return {
     local augroup = api.nvim_create_augroup('actually-au', {clear = true})
 
     api.nvim_create_autocmd("BufNewFile", {
-      buffer = 0,
+      pattern = "*",
       callback = function(details)
         if fn.filereadable(details.file) == 1 then
           -- Another BufNewFile event might have handled this already.
@@ -32,8 +32,11 @@ return {
 
               end
             }, function(choice)
-              if choice then vim.cmd("edit " .. choice) end
-
+              if choice then
+                local empty_bufnr = api.nvim_win_get_buf(0)
+                vim.cmd("edit " .. choice)
+                api.nvim_buf_delete(empty_bufnr, {})
+              end
             end)
           end
         end
