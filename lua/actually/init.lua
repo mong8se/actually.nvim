@@ -34,7 +34,7 @@ return {
             }, function(choice)
               if choice then
                 local empty_bufnr = api.nvim_win_get_buf(0)
-                vim.cmd("edit " .. choice)
+                vim.cmd("edit " ..  vim.fn.fnameescape(choice))
                 api.nvim_buf_delete(empty_bufnr, {})
               end
             end)
