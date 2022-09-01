@@ -28,8 +28,7 @@ actually want to choose `that_thing` or `the_other_thing`.
 But don't worry, if you really intended to make a file called `th`,
 you can cancel, because you actually knew all along.
 
-![a demo gif using actually.nvim](./doc/actually.gif)
-
+![a demo gif using actually.nvim](https://i.imgur.com/iEQxQxO.gifv)
 ## How I install?
 
 The regular way.
