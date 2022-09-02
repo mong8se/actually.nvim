@@ -48,9 +48,15 @@ You mean
 [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim) ?
 Hold on let me go check ...
 
-## Well?
+### Well?
 
 ... ya totally worked
+
+## Also
+
+If you like this you might also like
+[actually.fish](https://github.com/mong8se/actually.fish) which is the
+same concept for changing directories in fish shell.
 
 TODO: Cleanup
 TODO: Windows Operating System!?
