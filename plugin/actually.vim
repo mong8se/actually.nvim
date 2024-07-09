@@ -1,6 +1,6 @@
 " Title:        Actually
-" Description:  A buffer chooser in the spirit of dirvish or vinegar
-" Last Change:  8 November 2021
+" Description:  A plugin to help load the file you actually meant to load
+" Last Change:  9 July 2024
 " Maintainer:   Steven Moazami <https://github.com/mong8se>
 
 " Plugin structure gleaned from here:
@@ -16,7 +16,7 @@ let g:loaded_actually = 1
 
 " Defines a package path for Lua. This facilitates importing the
 " Lua modules from the plugin's dependency directory.
-let s:lua_rocks_deps_loc =  expand("<sfile>:h:r") . "/../lua/actually/deps"
-exe "lua package.path = package.path .. ';" . s:lua_rocks_deps_loc . "/lua-?/init.lua'"
+" let s:lua_rocks_deps_loc =  expand("<sfile>:h:r") . "/../lua/actually/deps"
+" exe "lua package.path = package.path .. ';" . s:lua_rocks_deps_loc . "/lua-?/init.lua'"
 
 lua require("actually").setup()

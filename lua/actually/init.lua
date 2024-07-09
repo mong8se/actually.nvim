@@ -1,5 +1,6 @@
 local api = vim.api
 local fn = vim.fn
+local basename = vim.fs.basename
 
 function OpenActual(choice)
   if choice then
@@ -14,17 +15,17 @@ function Actually(details)
   -- Per https://github.com/EinfachToll/DidYouMean
   if fn.filereadable(details.file) == 1 then return end
 
-  local swapfile = fn.swapname(api.nvim_buf_get_name(0))
+  local swapfile = basename(fn.swapname(api.nvim_buf_get_name(0)))
   local possiblities = vim.tbl_filter(function(file)
     -- In case you have a swapfile in the same directory,
     -- with the same name but ending in .swp
-    return file ~= swapfile and #file > 1
+    return #file > 1 and basename(file) ~= swapfile
   end, fn.glob(details.file .. "*", false, true))
 
   if #possiblities > 0 then
     vim.ui.select(possiblities, {
       prompt = 'Actually! You probably meant:',
-      format_item = vim.fs.basename
+      format_item = basename
     }, OpenActual)
   end
 end
