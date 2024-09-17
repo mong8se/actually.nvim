@@ -1,5 +1,6 @@
 local api = vim.api
 local fn = vim.fn
+local opt = vim.o
 local basename = vim.fs.basename
 
 function OpenActual(choice)
@@ -16,11 +17,20 @@ function Actually(details)
   if fn.filereadable(details.file) == 1 then return end
 
   local swapfile = basename(fn.swapname(fn.bufname(0)))
+
+  local prev_fileignorecase = opt.fileignorecase
+  opt.fileignorecase = true
+
   local possiblities = vim.tbl_filter(function(file)
-    -- In case you have a swapfile in the same directory,
-    -- with the same name but ending in .swp
+    -- If you have your swapfile directory set to the current directory
+    -- and you are editing a file that starts with a "."
+    -- then there is already a swapfile for this new buffer
+    -- with a name that would match our glob
+    -- and we don't want to show it on the list.
     return #file > 1 and basename(file) ~= swapfile
   end, fn.glob(fn.fnameescape(details.file) .. "*", false, true))
+
+  opt.fileignorecase = prev_fileignorecase
 
   if #possiblities > 0 then
     vim.ui.select(possiblities, {
