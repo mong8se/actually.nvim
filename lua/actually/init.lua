@@ -15,7 +15,7 @@ function Actually(details)
   -- Per https://github.com/EinfachToll/DidYouMean
   if fn.filereadable(details.file) == 1 then return end
 
-  local swapfile = basename(fn.swapname(api.nvim_buf_get_name(0)))
+  local swapfile = basename(fn.swapname(fn.bufname(0)))
   local possiblities = vim.tbl_filter(function(file)
     -- In case you have a swapfile in the same directory,
     -- with the same name but ending in .swp
