@@ -20,7 +20,7 @@ function Actually(details)
     -- In case you have a swapfile in the same directory,
     -- with the same name but ending in .swp
     return #file > 1 and basename(file) ~= swapfile
-  end, fn.glob(details.file .. "*", false, true))
+  end, fn.glob(fn.fnameescape(details.file) .. "*", false, true))
 
   if #possiblities > 0 then
     vim.ui.select(possiblities, {
