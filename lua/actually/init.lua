@@ -12,9 +12,11 @@ function OpenActual(choice)
 end
 
 function Actually(details)
+  local filename = fn.fnameescape(details.file)
+
   -- Another BufNewFile event might have handled this already.
   -- Per https://github.com/EinfachToll/DidYouMean
-  if fn.filereadable(details.file) == 1 then return end
+  if fn.filereadable(filename) == 1 then return end
 
   local swapfile = basename(fn.swapname(fn.bufname(0)))
 
@@ -28,15 +30,17 @@ function Actually(details)
     -- with a name that would match our glob
     -- and we don't want to show it on the list.
     return #file > 1 and basename(file) ~= swapfile
-  end, fn.glob(fn.fnameescape(details.file) .. "*", false, true))
+  end, fn.glob(filename .. "*", false, true))
 
   opt.fileignorecase = prev_fileignorecase
 
   if #possiblities > 0 then
-    vim.ui.select(possiblities, {
-      prompt = 'Actually! You probably meant:',
-      format_item = basename
-    }, OpenActual)
+    vim.schedule(function()
+      vim.ui.select(possiblities, {
+        prompt = 'Actually! You probably meant:',
+        format_item = basename
+      }, OpenActual)
+    end)
   end
 end
 
