@@ -32,10 +32,10 @@ you can cancel, because you actually knew all along.
 
 ## How I install?
 
-The regular way.
+The regular way, use your favorite package manager to load:
 
 ```lua
-packer use "mong8se/actually.nvim"
+"mong8se/actually.nvim"
 ```
 
 ## How I configure
