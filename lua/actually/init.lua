@@ -50,6 +50,7 @@ return {
 
     api.nvim_create_autocmd("BufNewFile", {
       pattern = "*",
+      nested = true,
       callback = Actually,
       group = augroup
     })
